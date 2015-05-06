@@ -17,12 +17,15 @@ public class Slime : Monster {
     
     static private let IMAGE_NAME_B = "monster3b"
     
-    static private let POSITION = CGPoint(x: 70, y: 230)
+    static private let POSITION = CGPoint(x: 60, y: 230)
+    
+    static private let RESTITUTION: CGFloat = 1.8
     
     init() {
         super.init(texture: SKTexture(imageNamed: Slime.IMAGE_NAME_A),
             position: Slime.POSITION)
         self.name = Slime.NAME
+        self.physicsBody?.restitution = Slime.RESTITUTION
     }
     
     required public init?(coder aDecoder: NSCoder) {

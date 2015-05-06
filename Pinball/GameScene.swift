@@ -32,6 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setupBackground()
         setupArms()
         setupMonsters()
+        setupPointLabel()
         makeBall()
     }
     
@@ -80,6 +81,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         slime.setParaParaAnimation()
     }
     
+    private func setupPointLabel() {
+        showPoint()
+        pointLabel.fontSize = 25
+        pointLabel.fontColor = UIColor.whiteColor()
+        pointLabel.position = CGPoint(x:160, y:497)
+        self.addChild(pointLabel)
+    }
+    
     private func makeBall() {
         ball.physicsBody = SKPhysicsBody(circleOfRadius: 15)
         ball.physicsBody?.contactTestBitMask = 1
@@ -90,10 +99,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         if let nodeA = contact.bodyA.node, nodeB = contact.bodyB.node {
             if (nodeA is Monster || nodeB is Monster) {
+                point += 10
+                showPoint()
                 ball.runAction(playSound)
                 showParticle()
             }
         }
+    }
+    
+    private func showPoint() {
+        pointLabel.text = "\(point)点"
     }
     
     private func showParticle() {
@@ -116,6 +131,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for touch: AnyObject in touches {
             arms.upArms()
         }
+        if (isGameover) {
+            restart()
+        }
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -125,5 +143,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
    
     override func update(currentTime: CFTimeInterval) {
+        if (isGameover) {
+            return
+        }
+        if (ball.position.y < 0) {
+            gameover()
+        }
+    }
+    
+    private func restart() {
+        isGameover = false
+        gameoverLabel.removeFromParent()
+        ball.removeFromParent()
+        makeBall()
+        point = 0
+    }
+    
+    private func gameover() {
+        gameoverLabel.text = "GAME OVER"
+        gameoverLabel.fontSize = 30
+        gameoverLabel.fontColor = UIColor.blackColor()
+        gameoverLabel.position =
+            CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        self.addChild(gameoverLabel)
+        isGameover = true
     }
 }

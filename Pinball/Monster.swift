@@ -43,7 +43,7 @@ public class Monster : SKSpriteNode{
     }
     
     func setRotateAnimation() {
-        let rotate = SKAction.rotateByAngle(CGFloat(360*M_PI/180), duration: 3)
+        let rotate = SKAction.rotateByAngle(-CGFloat(2*M_PI), duration: 3)
         let rotateRepeat = SKAction.repeatActionForever(rotate)
         self.runAction(rotateRepeat)
     }

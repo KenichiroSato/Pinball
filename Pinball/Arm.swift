@@ -22,7 +22,7 @@ public class Arm : SKSpriteNode{
     init(texture:SKTexture, position:CGPoint) {
         super.init(texture: texture, color:UIColor.whiteColor(),  size: texture.size())
         self.physicsBody = SKPhysicsBody(texture: texture, size: self.size)
-        self.physicsBody?.restitution = 1.5
+        self.physicsBody?.restitution = 1.7
         self.physicsBody?.dynamic = false
         self.physicsBody?.contactTestBitMask = 1
         self.position = position
