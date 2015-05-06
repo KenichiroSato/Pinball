@@ -87,6 +87,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(ball)
     }
     
+    func didBeginContact(contact: SKPhysicsContact) {
+        if let nodeA = contact.bodyA.node, nodeB = contact.bodyB.node {
+            if (nodeA is Monster || nodeB is Monster) {
+                ball.runAction(playSound)
+            }
+        }
+    }
+    
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             arms.upArms()
