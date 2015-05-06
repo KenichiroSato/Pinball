@@ -19,8 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let pointLabel = SKLabelNode(fontNamed: "Hiragino Kaku Gothic ProN")
     
     var ball = SKSpriteNode(imageNamed:"ball")
-    var armRight = SKSpriteNode(imageNamed: "rightarm")
-    var armLeft = SKSpriteNode(imageNamed: "leftarm")
+    var arms : Arms!
     var back = SKSpriteNode(imageNamed: "back")
     //var wallLeft = SKSpriteNode(imageNamed: "wallleft")
     //var wallRight = SKSpriteNode(imageNamed: "wallright")
@@ -35,6 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         setupPhysics()
         setupBackground()
+        setupArms()
         makeBall()
     }
     
@@ -54,14 +54,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(leftWall)
     }
     
+    private func setupArms() {
+        arms = Arms()
+        arms.addArms(self)
+    }
+    
     private func makeBall() {
         ball.physicsBody = SKPhysicsBody(circleOfRadius: 15)
         ball.physicsBody?.contactTestBitMask = 1
-        ball.position = CGPoint(x: 235, y: 500)
+        ball.position = CGPoint(x: 225, y: 500)
         self.addChild(ball)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            arms.upArms()
+        }
+    }
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            arms.downArms()
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
