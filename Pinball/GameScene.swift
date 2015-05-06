@@ -25,9 +25,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //var wallRight = SKSpriteNode(imageNamed: "wallright")
     var triangleRight = SKSpriteNode(imageNamed: "triangleright")
     var triangleLeft = SKSpriteNode(imageNamed: "triangleleft")
-    var monster1 = SKSpriteNode(imageNamed: "monster1a")
-    var monster2 = SKSpriteNode(imageNamed: "monster2a")
-    var monster3 = SKSpriteNode(imageNamed: "monster3a")
+    var mushroom : Monster!
+    var dragon : Monster!
+    var slime : Monster!
+    //var monster1 = SKSpriteNode(imageNamed: "monster1a")
+    //var monster2 = SKSpriteNode(imageNamed: "monster2a")
+    //var monster3 = SKSpriteNode(imageNamed: "monster3a")
     let playSound = SKAction.playSoundFileNamed("click.mp3", waitForCompletion: false)
 
     
@@ -35,6 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setupPhysics()
         setupBackground()
         setupArms()
+        setupMonsters()
         makeBall()
     }
     
@@ -57,6 +61,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func setupArms() {
         arms = Arms()
         arms.addArms(self)
+    }
+    
+    private func setupMonsters() {
+        mushroom = Mushroom()
+        self.addChild(mushroom)
+        mushroom.setScaleAnimation()
+        mushroom.setParaParaAnimation()
+        
+        dragon = Dragon()
+        self.addChild(dragon)
+        dragon.setMoveAnimation()
+        dragon.setParaParaAnimation()
+        
+        slime = Slime()
+        self.addChild(slime)
+        slime.setRotateAnimation()
+        slime.setParaParaAnimation()
     }
     
     private func makeBall() {
