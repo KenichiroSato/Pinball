@@ -17,7 +17,7 @@ public class Dragon : Monster {
     
     static private let IMAGE_NAME_B = "monster2b"
     
-    static private let POSITION = CGPoint(x: 100, y: 300)
+    static private let POSITION = CGPoint(x: 100, y: 400)
     
     init() {
         super.init(texture: SKTexture(imageNamed: Dragon.IMAGE_NAME_A),

@@ -35,8 +35,8 @@ public class Monster : SKSpriteNode{
     }
     
     func setMoveAnimation() {
-        let moveA = SKAction.moveTo(CGPoint(x: 100, y: 300), duration: 1)
-        let moveB = SKAction.moveTo(CGPoint(x: 200, y: 300), duration: 1)
+        let moveA = SKAction.moveTo(CGPoint(x: 100, y: 400), duration: 1)
+        let moveB = SKAction.moveTo(CGPoint(x: 200, y: 400), duration: 1)
         let scaleSequence = SKAction.sequence([moveA, moveB])
         let scaleRepeatAction = SKAction.repeatActionForever(scaleSequence)
         self.runAction(scaleRepeatAction)
