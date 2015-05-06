@@ -91,8 +91,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let nodeA = contact.bodyA.node, nodeB = contact.bodyB.node {
             if (nodeA is Monster || nodeB is Monster) {
                 ball.runAction(playSound)
+                showParticle()
             }
         }
+    }
+    
+    private func showParticle() {
+        let particle = SKEmitterNode(fileNamed: "HitMonster.sks")
+        self.addChild(particle)
+        
+        var removeAction = SKAction.removeFromParent()
+        var durationAction = SKAction.waitForDuration(1)
+        var sequence = SKAction.sequence([durationAction, removeAction])
+        particle.runAction(sequence)
+        
+        particle.position = CGPoint(x: ball.position.x, y: ball.position.y)
+        particle.alpha = 1
+        
+        var fadeAction = SKAction.fadeAlphaTo(0, duration: 0.5)
+        particle.runAction(fadeAction)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
