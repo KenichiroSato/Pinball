@@ -22,8 +22,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var armRight = SKSpriteNode(imageNamed: "rightarm")
     var armLeft = SKSpriteNode(imageNamed: "leftarm")
     var back = SKSpriteNode(imageNamed: "back")
-    var wallLeft = SKSpriteNode(imageNamed: "wallleft")
-    var wallRight = SKSpriteNode(imageNamed: "wallright")
+    //var wallLeft = SKSpriteNode(imageNamed: "wallleft")
+    //var wallRight = SKSpriteNode(imageNamed: "wallright")
     var triangleRight = SKSpriteNode(imageNamed: "triangleright")
     var triangleLeft = SKSpriteNode(imageNamed: "triangleleft")
     var monster1 = SKSpriteNode(imageNamed: "monster1a")
@@ -43,18 +43,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
     }
     
-    
-    
     private func setupBackground() {
         back.position = CGPoint(x:0, y:0)
         back.anchorPoint = CGPoint(x: 0, y: 0)
         self.addChild(back)
+        
+        let rightWall = Wall(texture: Wall.RIGHT_TEXTURE, position: CGPoint(x: 240, y: 284))
+        self.addChild(rightWall)
+        let leftWall = Wall(texture: Wall.LEFT_TEXTURE, position: CGPoint(x: 80, y: 284))
+        self.addChild(leftWall)
     }
     
     private func makeBall() {
         ball.physicsBody = SKPhysicsBody(circleOfRadius: 15)
         ball.physicsBody?.contactTestBitMask = 1
-        ball.position = CGPoint(x: 165, y: 500)
+        ball.position = CGPoint(x: 235, y: 500)
         self.addChild(ball)
     }
     
