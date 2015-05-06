@@ -28,6 +28,7 @@ class GameViewController: UIViewController {
         scene.size = skView.frame.size
         
         skView.presentScene(scene)
+        skView.multipleTouchEnabled = false
     }
 
     override func shouldAutorotate() -> Bool {

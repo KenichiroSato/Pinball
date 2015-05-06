@@ -8,38 +8,59 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var isGameover = false
+    
+    var point:NSInteger = 0
+    
+    let gameoverLabel = SKLabelNode(fontNamed: "Hiragino Kaku Gothic ProN")
+    
+    let pointLabel = SKLabelNode(fontNamed: "Hiragino Kaku Gothic ProN")
+    
+    var ball = SKSpriteNode(imageNamed:"ball")
+    var armRight = SKSpriteNode(imageNamed: "rightarm")
+    var armLeft = SKSpriteNode(imageNamed: "leftarm")
+    var back = SKSpriteNode(imageNamed: "back")
+    var wallLeft = SKSpriteNode(imageNamed: "wallleft")
+    var wallRight = SKSpriteNode(imageNamed: "wallright")
+    var triangleRight = SKSpriteNode(imageNamed: "triangleright")
+    var triangleLeft = SKSpriteNode(imageNamed: "triangleleft")
+    var monster1 = SKSpriteNode(imageNamed: "monster1a")
+    var monster2 = SKSpriteNode(imageNamed: "monster2a")
+    var monster3 = SKSpriteNode(imageNamed: "monster3a")
+    let playSound = SKAction.playSoundFileNamed("click.mp3", waitForCompletion: false)
+
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)
+        setupPhysics()
+        setupBackground()
+        makeBall()
+    }
+    
+    private func setupPhysics() {
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: -3.0)
+        self.physicsWorld.contactDelegate = self
+    }
+    
+    
+    
+    private func setupBackground() {
+        back.position = CGPoint(x:0, y:0)
+        back.anchorPoint = CGPoint(x: 0, y: 0)
+        self.addChild(back)
+    }
+    
+    private func makeBall() {
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: 15)
+        ball.physicsBody?.contactTestBitMask = 1
+        ball.position = CGPoint(x: 165, y: 500)
+        self.addChild(ball)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
     }
 }
