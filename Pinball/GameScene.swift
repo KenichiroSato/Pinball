@@ -21,16 +21,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var ball = SKSpriteNode(imageNamed:"ball")
     var arms : Arms!
     var back = SKSpriteNode(imageNamed: "back")
-    //var wallLeft = SKSpriteNode(imageNamed: "wallleft")
-    //var wallRight = SKSpriteNode(imageNamed: "wallright")
-    var triangleRight = SKSpriteNode(imageNamed: "triangleright")
-    var triangleLeft = SKSpriteNode(imageNamed: "triangleleft")
     var mushroom : Monster!
     var dragon : Monster!
     var slime : Monster!
-    //var monster1 = SKSpriteNode(imageNamed: "monster1a")
-    //var monster2 = SKSpriteNode(imageNamed: "monster2a")
-    //var monster3 = SKSpriteNode(imageNamed: "monster3a")
     let playSound = SKAction.playSoundFileNamed("click.mp3", waitForCompletion: false)
 
     
@@ -56,6 +49,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(rightWall)
         let leftWall = Wall(texture: Wall.LEFT_TEXTURE, position: CGPoint(x: 80, y: 284))
         self.addChild(leftWall)
+        
+        let rightObstacle = Obstacle(texture: Obstacle.RIGHT_TEXTURE,
+            position: Obstacle.RIGHT_POSITION)
+        self.addChild(rightObstacle)
+        let leftObstacle = Obstacle(texture: Obstacle.LEFT_TEXTURE,
+            position: Obstacle.LEFT_POSITION)
+        self.addChild(leftObstacle)
     }
     
     private func setupArms() {
