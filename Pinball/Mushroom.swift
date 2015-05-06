@@ -17,7 +17,7 @@ public class Mushroom : Monster {
     
     static private let IMAGE_NAME_B = "monster1b"
     
-    static private let POSITION = CGPoint(x: 140, y: 410)
+    static private let POSITION = CGPoint(x: 180, y: 410)
     
     init() {
         super.init(texture: SKTexture(imageNamed: Mushroom.IMAGE_NAME_A),

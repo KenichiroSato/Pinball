@@ -17,7 +17,7 @@ public class Slime : Monster {
     
     static private let IMAGE_NAME_B = "monster3b"
     
-    static private let POSITION = CGPoint(x: 160, y: 200)
+    static private let POSITION = CGPoint(x: 70, y: 230)
     
     init() {
         super.init(texture: SKTexture(imageNamed: Slime.IMAGE_NAME_A),

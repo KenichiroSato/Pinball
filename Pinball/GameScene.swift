@@ -83,7 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func makeBall() {
         ball.physicsBody = SKPhysicsBody(circleOfRadius: 15)
         ball.physicsBody?.contactTestBitMask = 1
-        ball.position = CGPoint(x: 225, y: 500)
+        ball.position = CGPoint(x: 135, y: 500)
         self.addChild(ball)
     }
     

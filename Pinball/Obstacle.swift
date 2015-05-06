@@ -15,9 +15,9 @@ public class Obstacle : SKSpriteNode{
     
     static let LEFT_TEXTURE = SKTexture(imageNamed: "triangleleft")
     
-    static let RIGHT_POSITION = CGPoint(x: 250, y: 150)
+    static let RIGHT_POSITION = CGPoint(x: 240, y: 150)
 
-    static let LEFT_POSITION = CGPoint(x: 70, y: 150)
+    static let LEFT_POSITION = CGPoint(x: 80, y: 150)
     
     static let RESTITUTION : CGFloat
     = 0.5
