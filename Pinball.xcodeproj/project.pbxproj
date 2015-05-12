@@ -23,7 +23,7 @@
 		595E2FD11AF9A4E2001D03B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 595E2FD01AF9A4E2001D03B5 /* Images.xcassets */; };
 		595E2FD41AF9A4E2001D03B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595E2FD21AF9A4E2001D03B5 /* LaunchScreen.xib */; };
 		595E2FE01AF9A4E2001D03B5 /* PinballTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595E2FDF1AF9A4E2001D03B5 /* PinballTests.swift */; };
-		595E2FEB1AF9AD30001D03B5 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 595E2FEA1AF9AD30001D03B5 /* click.mp3 */; };
+		5987464B1B0255BD0080249D /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5987464A1B0255BD0080249D /* click.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 		595E2FD91AF9A4E2001D03B5 /* PinballTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinballTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		595E2FDE1AF9A4E2001D03B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595E2FDF1AF9A4E2001D03B5 /* PinballTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinballTests.swift; sourceTree = "<group>"; };
-		595E2FEA1AF9AD30001D03B5 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = click.mp3; path = ../../SpriteKit_Sample/05_pinball/resources/click.mp3; sourceTree = "<group>"; };
+		5987464A1B0255BD0080249D /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +148,7 @@
 		595E2FE91AF9AD21001D03B5 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				595E2FEA1AF9AD30001D03B5 /* click.mp3 */,
+				5987464A1B0255BD0080249D /* click.mp3 */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -234,8 +234,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				595E2FD41AF9A4E2001D03B5 /* LaunchScreen.xib in Resources */,
-				595E2FEB1AF9AD30001D03B5 /* click.mp3 in Resources */,
 				595E2FD11AF9A4E2001D03B5 /* Images.xcassets in Resources */,
+				5987464B1B0255BD0080249D /* click.mp3 in Resources */,
 				5945F46E1AFA1824008259BF /* HitMonster.sks in Resources */,
 				595E2FCF1AF9A4E2001D03B5 /* Main.storyboard in Resources */,
 			);
